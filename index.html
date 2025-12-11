@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My World!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .welcome-message {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 5px solid #4f46e5;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #e2e8f0;
+        }
+        
+        .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .joke-icon {
+            color: #f59e0b;
+        }
+        
+        .packcat-icon {
+            color: #10b981;
+        }
+        
+        .card h2 {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .card p {
+            color: #64748b;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+        
+        .btn-joke {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-packcat {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 Welcome Explorer! 🌟</h1>
+            <p>Discover amazing content in these two worlds</p>
+        </div>
+        
+        <div class="content">
+            <div class="welcome-message">
+                <p><strong>"Welcome to explore this world!"</strong></p>
+                <p>Click on either destination below to begin your journey into laughter or feline friendship!</p>
+            </div>
+            
+            <div class="links-grid">
+                <!-- Joke Page Card -->
+                <div class="card">
+                    <div class="icon joke-icon">😄</div>
+                    <h2>Joke World</h2>
+                    <p>Enter a world of laughter and humor! Discover funny jokes, hilarious memes, and witty one-liners that will brighten your day.</p>
+                    <a href="joke.html" class="btn btn-joke">Enter Joke World →</a>
+                </div>
+                
+                <!-- PackCat Page Card -->
+                <div class="card">
+                    <div class="icon packcat-icon">🐱</div>
+                    <h2>PackCat World</h2>
+                    <p>Explore the adorable universe of PackCat! Meet cute cats, learn about different breeds, and enjoy feline companionship.</p>
+                    <a href="packcat.html" class="btn btn-packcat">Enter PackCat World →</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: #64748b; font-style: italic;">Can't decide? Try both! Each world offers a unique experience.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with ❤️ | Happy exploring! | Last updated: 2024</p>
+        </div>
+    </div>
+</body>
+</html>
