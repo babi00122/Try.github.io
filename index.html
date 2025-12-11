@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Explore Fun Worlds ✨</title>
+    <title> 🐶 Welcome to explore here 🐶 </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,32 +13,39 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f8f9ff 0%, #eef2ff 100%);
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ffe6f2 0%, #e6f2ff 100%);
             min-height: 100vh;
             overflow-x: hidden;
             color: #333;
-            line-height: 1.6;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><text y="20" font-size="20">🐭</text></svg>'), auto;
         }
         
-        /* Floating elements - toned down */
-        .floating {
+        /* Cat & Mouse cursor */
+        a, button {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><text y="20" font-size="20">🐱</text></svg>'), pointer;
+        }
+        
+        /* Floating fairies & stars */
+        .fairy {
             position: fixed;
+            font-size: 24px;
             z-index: 1;
-            font-size: 20px;
-            animation: float 8s ease-in-out infinite;
-            opacity: 0.7;
+            animation: fairyFloat 8s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 182, 193, 0.5));
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(3deg); }
+        @keyframes fairyFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -15px) rotate(5deg); }
+            50% { transform: translate(-5px, -25px) rotate(-5deg); }
+            75% { transform: translate(-10px, -15px) rotate(5deg); }
         }
         
-        .star1 { top: 10%; left: 5%; color: #6366f1; }
-        .star2 { top: 15%; right: 8%; color: #8b5cf6; animation-delay: 1s; }
-        .star3 { bottom: 20%; left: 10%; color: #10b981; animation-delay: 2s; }
-        .star4 { bottom: 15%; right: 12%; color: #f59e0b; animation-delay: 3s; }
+        .fairy1 { top: 10%; left: 5%; color: #ff9ec0; animation-delay: 0s; }
+        .fairy2 { top: 15%; right: 8%; color: #a6e3ff; animation-delay: 1s; }
+        .fairy3 { bottom: 20%; left: 10%; color: #ffb6c1; animation-delay: 2s; }
+        .fairy4 { bottom: 15%; right: 12%; color: #ffcc99; animation-delay: 3s; }
         
         /* Main container */
         .container {
@@ -53,49 +60,64 @@
         .header {
             text-align: center;
             padding: 40px 30px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
+            border-radius: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
-            border: 2px solid #e0e7ff;
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.25);
+            border: 4px double #ffb6c1;
             position: relative;
             backdrop-filter: blur(10px);
         }
         
+        .header::before {
+            content: "✨ 🎀 🐱 🐭 🎀 ✨";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            right: 0;
+            font-size: 20px;
+            letter-spacing: 5px;
+        }
+        
         .title {
-            font-size: 3rem;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 25%, #10b981 50%, #f59e0b 75%, #ec4899 100%);
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff9ec0 25%, #a6e3ff 50%, #ffcc99 75%, #9effb0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: titleGlow 4s infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 107, 157, 0.3)); }
+            100% { filter: brightness(1.1) drop-shadow(0 0 10px rgba(255, 107, 157, 0.5)); }
         }
         
         .subtitle {
-            font-size: 1.3rem;
-            color: #4f46e5;
+            font-size: 1.4rem;
+            color: #ff6b9d;
             margin-bottom: 10px;
-            font-weight: 500;
+            font-weight: 600;
         }
         
         .welcome-text {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 20px;
             font-size: 1.3rem;
-            color: #374151;
+            color: #5a5560;
             line-height: 1.7;
             margin: 30px 0;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 3px dashed #ffb6c1;
+            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.15);
             position: relative;
             text-align: center;
         }
         
         .welcome-text strong {
-            color: #4f46e5;
-            font-size: 1.4rem;
+            color: #ff6b9d;
+            font-size: 1.5rem;
             display: block;
             margin-bottom: 10px;
         }
@@ -114,21 +136,15 @@
             flex: 1;
             min-width: 300px;
             max-width: 450px;
-            background: white;
-            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.8));
+            border-radius: 25px;
             padding: 35px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #e5e7eb;
+            border: 4px solid;
             position: relative;
             overflow: hidden;
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-            border-color: #c7d2fe;
         }
         
         .card::before {
@@ -137,94 +153,93 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6, #10b981, #f59e0b);
+            height: 8px;
+            background: linear-gradient(90deg, #ff9ec0, #a6e3ff, #ffcc99, #9effb0);
             z-index: 1;
         }
         
+        .card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 50px rgba(255, 182, 193, 0.4);
+        }
+        
+        /* Joke card */
+        .card.joke {
+            border-color: #ff9ec0;
+        }
+        
+        /* PackCat card */
+        .card.packcat {
+            border-color: #a6e3ff;
+        }
+        
         .card-icon {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 25px;
             display: inline-block;
-            animation: bounce 3s infinite;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            animation: bounce 2.5s infinite;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
         
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
         }
         
         .card-title {
-            font-size: 2rem;
-            color: #1f2937;
+            font-size: 2.2rem;
+            color: #ff6b9d;
             margin-bottom: 15px;
             font-weight: 700;
-        }
-        
-        .card.joke .card-title {
-            color: #7c3aed;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .card.packcat .card-title {
-            color: #0d9488;
+            color: #5dadec;
         }
         
         .card-description {
-            color: #4b5563;
-            font-size: 1.1rem;
+            color: #666;
+            font-size: 1.15rem;
             line-height: 1.6;
             margin-bottom: 30px;
         }
         
         .btn {
             display: inline-block;
-            padding: 14px 32px;
-            border-radius: 12px;
+            padding: 16px 35px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
             border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform-style: preserve-3d;
         }
         
-        .btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.7s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
         }
         
         .btn-joke {
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            background: linear-gradient(135deg, #ff9ec0, #ff6b9d);
             color: white;
         }
         
         .btn-joke:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.4);
         }
         
         .btn-packcat {
-            background: linear-gradient(135deg, #10b981, #0d9488);
+            background: linear-gradient(135deg, #a6e3ff, #5dadec);
             color: white;
         }
         
         .btn-packcat:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 15px 30px rgba(93, 173, 236, 0.4);
         }
         
         /* Footer */
@@ -232,42 +247,54 @@
             text-align: center;
             padding: 30px;
             margin-top: 50px;
-            background: white;
-            border-radius: 16px;
-            color: #6b7280;
-            border: 1px solid #e5e7eb;
-            font-size: 0.95rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.9));
+            border-radius: 25px;
+            color: #ff6b9d;
+            border: 3px dotted #ffb6c1;
+            position: relative;
         }
         
-        .footer-icons {
+        .footer::before {
+            content: "🐱 🐭 🎀 🐾 🎀 🐭 🐱";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            font-size: 24px;
+        }
+        
+        .magic-text {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #5a5560;
+        }
+        
+        /* Cute divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
             font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #6366f1;
+            color: #ff9ec0;
+            gap: 15px;
         }
         
-        /* Typography improvements */
-        h1, h2, h3 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        p {
-            margin-bottom: 1rem;
+        .divider-line {
+            height: 2px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, transparent, #ffb6c1, transparent);
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             .title {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
             
             .card {
                 min-width: 100%;
                 padding: 25px;
-            }
-            
-            .floating {
-                display: none;
             }
             
             .welcome-text {
@@ -278,96 +305,94 @@
         
         /* Selection color */
         ::selection {
-            background-color: #c7d2fe;
-            color: #1f2937;
+            background-color: #ffb6c1;
+            color: white;
         }
         
-        /* Focus states for accessibility */
-        .btn:focus, a:focus {
-            outline: 3px solid #6366f1;
-            outline-offset: 3px;
+        /* Star effect styles */
+        .star {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            z-index: 1000;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>');
+            background-size: contain;
+            opacity: 0;
         }
         
-        /* Decorative elements */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
-            margin: 40px 0;
+        .fairy-dust {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            pointer-events: none;
+            z-index: 1000;
+            border-radius: 50%;
+            opacity: 0;
         }
         
-        .emoji-row {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 1.8rem;
-            opacity: 0.8;
-        }
-        
-        /* Improved text contrast */
-        .dark-text {
-            color: #1f2937;
-        }
-        
-        .medium-text {
-            color: #4b5563;
-        }
-        
-        .light-text {
-            color: #6b7280;
-        }
-        
-        /* Card badges */
-        .card-badge {
+        /* Cat and mouse footprints */
+        .footprints {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #fef3c7;
-            color: #92400e;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 20px;
+            animation: footprints 2s linear forwards;
+            opacity: 0;
+        }
+        
+        @keyframes footprints {
+            0% { opacity: 0; transform: translateY(0) rotate(0deg); }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100px) rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Floating elements -->
-    <div class="floating star1">✨</div>
-    <div class="floating star2">🌟</div>
-    <div class="floating star3">💫</div>
-    <div class="floating star4">🌸</div>
+    <!-- Floating fairies -->
+    <div class="fairy fairy1">🧚‍♀️</div>
+    <div class="fairy fairy2">✨</div>
+    <div class="fairy fairy3">🌟</div>
+    <div class="fairy fairy4">💫</div>
     
     <!-- Main container -->
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1 class="title">Explore Fun Worlds</h1>
-            <p class="subtitle">Choose your adventure and discover something amazing!</p>
+            <h1 class="title">Magical World Explorer</h1>
+            <p class="subtitle">Where Cats Chase Mice and Magic Happens! 🎩🐇</p>
         </div>
         
         <!-- Welcome message -->
         <div class="welcome-text">
-            <strong>"Welcome to explore this world!"</strong>
-            <p>Select one of the adventures below to enter a world full of laughter or cuteness. Each destination offers unique content that's sure to brighten your day!</p>
+            <strong>"Welcome to explore this world!" 🎉</strong>
+            <p>Click on either magical portal below to enter a world of laughter or feline friendship! Each click creates magical fairy star effects! ✨</p>
+            <p style="margin-top: 15px; font-size: 1.1rem; color: #ff9ec0;">
+                <i class="fas fa-magic"></i> Try clicking the buttons for a magical surprise!
+            </p>
         </div>
         
-        <!-- Emoji row -->
-        <div class="emoji-row">
-            ✨ 🎯 🚀 ✨
+        <!-- Divider -->
+        <div class="divider">
+            <div class="divider-line"></div>
+            <span>✨ Click Your Adventure ✨</span>
+            <div class="divider-line"></div>
         </div>
         
         <!-- Cards container -->
         <div class="cards-container">
             <!-- Joke Card -->
             <div class="card joke">
-                <span class="card-badge">NEW</span>
-                <div class="card-icon">😄</div>
+                <div class="card-icon">😂</div>
                 <h2 class="card-title">Joke World</h2>
                 <p class="card-description">
-                    Step into a world of laughter and humor! Discover funny jokes, hilarious stories, and witty one-liners that will brighten your day. Perfect for when you need a good laugh or want to share something funny with friends.
+                    Enter a magical world of laughter! Discover hilarious jokes, funny memes, and witty humor that will make your day brighter. Perfect for when you need a good chuckle! 🎭
                 </p>
-                <a href="joke.html" class="btn btn-joke">
+                <a href="joke.html" class="btn btn-joke" id="jokeBtn">
                     <i class="fas fa-laugh-squint"></i> Enter Joke World
                 </a>
+                <div style="margin-top: 25px; font-size: 1.5rem; color: #ff6b9d;">
+                    😄 😂 🤣 🥳
+                </div>
             </div>
             
             <!-- PackCat Card -->
@@ -375,85 +400,303 @@
                 <div class="card-icon">🐱</div>
                 <h2 class="card-title">PackCat World</h2>
                 <p class="card-description">
-                    Enter the adorable universe of cute kitties! Meet fluffy friends, see cute cat pictures, and learn fun facts about our feline companions. Get ready for maximum cuteness overload and heartwarming moments.
+                    Step into an adorable universe of cute kitties! Meet fluffy feline friends, see adorable cat pictures, and enjoy heartwarming moments with our purr-fect companions. 🐾
                 </p>
-                <a href="packcat.html" class="btn btn-packcat">
+                <a href="packcat.html" class="btn btn-packcat" id="packcatBtn">
                     <i class="fas fa-paw"></i> Enter PackCat World
                 </a>
+                <div style="margin-top: 25px; font-size: 1.5rem; color: #5dadec;">
+                    🐈 🐾 🎀 🐱
+                </div>
             </div>
         </div>
         
-        <!-- Divider -->
-        <div class="divider"></div>
-        
         <!-- Footer -->
         <div class="footer">
-            <div class="footer-icons">
-                ✨ 🐾 🌟
+            <div style="font-size: 2rem; margin-bottom: 15px; color: #ff9ec0;">
+                🐱✨🐭
             </div>
-            <p class="medium-text">Made with care • Easy to read • Balanced colors</p>
-            <p class="light-text">Refresh the page to see floating elements dance!</p>
-            <p style="margin-top: 15px; font-size: 0.85rem; color: #9ca3af;">
-                Text optimized for readability | Colors balanced for visual comfort
+            <p class="magic-text">Made with magic, pink sparkles, and cat-mouse friendship! ✨</p>
+            <p style="color: #888; margin-top: 10px; font-size: 0.9rem;">
+                Every click creates fairy dust! Try it! | Refresh for new floating fairies
             </p>
         </div>
     </div>
     
-    <!-- JavaScript for subtle interactions -->
+    <!-- JavaScript for Magical Effects -->
     <script>
-        // Add subtle hover effect to cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-        
-        // Add click animation to buttons
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                // Create ripple effect
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size/2;
-                const y = e.clientY - rect.top - size/2;
+        // Function to create star burst effect
+        function createStarBurst(x, y, color) {
+            // Create multiple stars
+            for(let i = 0; i < 25; i++) {
+                // Create star element
+                const star = document.createElement('div');
+                star.className = 'star';
                 
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.5);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    width: ${size}px;
-                    height: ${size}px;
-                    top: ${y}px;
-                    left: ${x}px;
-                    pointer-events: none;
-                `;
+                // Random size
+                const size = Math.random() * 25 + 10;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
                 
-                this.appendChild(ripple);
+                // Random starting position (around the click point)
+                const startX = x + (Math.random() * 100 - 50);
+                const startY = y + (Math.random() * 100 - 50);
                 
+                // Random color for fairy dust
+                const colors = ['#ff9ec0', '#a6e3ff', '#ffcc99', '#ffd700', '#c8a2ff'];
+                const starColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Set position and color
+                star.style.left = `${startX}px`;
+                star.style.top = `${startY}px`;
+                star.style.background = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${starColor.replace('#', '%23')}"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>')`;
+                star.style.backgroundSize = 'contain';
+                
+                // Random animation properties
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 150 + 50;
+                const duration = Math.random() * 1.5 + 1;
+                
+                // Add to body
+                document.body.appendChild(star);
+                
+                // Animate the star
+                star.animate([
+                    { 
+                        transform: `translate(0, 0) rotate(0deg) scale(1)`,
+                        opacity: 1
+                    },
+                    { 
+                        transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) rotate(360deg) scale(0)`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                });
+                
+                // Remove after animation
                 setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
+                    star.remove();
+                }, duration * 1000);
+            }
+            
+            // Create fairy dust particles
+            for(let i = 0; i < 15; i++) {
+                const dust = document.createElement('div');
+                dust.className = 'fairy-dust';
+                
+                // Random color
+                const dustColors = ['#ff9ec0', '#a6e3ff', '#ffcc99', '#ffd700', '#ffffff'];
+                const dustColor = dustColors[Math.floor(Math.random() * dustColors.length)];
+                
+                dust.style.backgroundColor = dustColor;
+                dust.style.boxShadow = `0 0 10px ${dustColor}`;
+                
+                // Random position
+                const dustX = x + (Math.random() * 80 - 40);
+                const dustY = y + (Math.random() * 80 - 40);
+                
+                dust.style.left = `${dustX}px`;
+                dust.style.top = `${dustY}px`;
+                
+                // Random size
+                const dustSize = Math.random() * 12 + 4;
+                dust.style.width = `${dustSize}px`;
+                dust.style.height = `${dustSize}px`;
+                
+                document.body.appendChild(dust);
+                
+                // Animate fairy dust
+                dust.animate([
+                    { 
+                        transform: 'translate(0, 0) scale(1)',
+                        opacity: 1
+                    },
+                    { 
+                        transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * -100 - 50}px) scale(0)`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: Math.random() * 2000 + 1000,
+                    easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                });
+                
+                // Remove after animation
+                setTimeout(() => {
+                    dust.remove();
+                }, 3000);
+            }
+            
+            // Create cat and mouse footprints
+            const footprints = ['🐱', '🐭', '🐾'];
+            for(let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const footprint = document.createElement('div');
+                    footprint.className = 'footprints';
+                    footprint.textContent = footprints[Math.floor(Math.random() * footprints.length)];
+                    footprint.style.left = `${x + (Math.random() * 100 - 50)}px`;
+                    footprint.style.top = `${y + (Math.random() * 100 - 50)}px`;
+                    footprint.style.fontSize = `${Math.random() * 24 + 16}px`;
+                    
+                    document.body.appendChild(footprint);
+                    
+                    setTimeout(() => {
+                        footprint.remove();
+                    }, 2000);
+                }, i * 100);
+            }
+            
+            // Play magical sound (optional - would need audio file)
+            // const sound = new Audio('magic-sound.mp3');
+            // sound.volume = 0.3;
+            // sound.play();
+        }
+        
+        // Add click event to buttons
+        document.getElementById('jokeBtn').addEventListener('click', function(e) {
+            // Prevent immediate navigation to see the effect
+            e.preventDefault();
+            
+            // Get button position
+            const rect = this.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            // Create star burst
+            createStarBurst(x, y, '#ff9ec0');
+            
+            // Add extra pink stars for joke world
+            for(let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const extraStar = document.createElement('div');
+                    extraStar.style.position = 'fixed';
+                    extraStar.style.left = `${x + Math.random() * 200 - 100}px`;
+                    extraStar.style.top = `${y + Math.random() * 200 - 100}px`;
+                    extraStar.style.fontSize = '24px';
+                    extraStar.style.zIndex = '1000';
+                    extraStar.textContent = '😂';
+                    extraStar.style.animation = 'footprints 1.5s linear forwards';
+                    
+                    document.body.appendChild(extraStar);
+                    
+                    setTimeout(() => {
+                        extraStar.remove();
+                    }, 1500);
+                }, i * 100);
+            }
+            
+            // Navigate after animation
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 1000);
         });
         
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
+        document.getElementById('packcatBtn').addEventListener('click', function(e) {
+            // Prevent immediate navigation to see the effect
+            e.preventDefault();
+            
+            // Get button position
+            const rect = this.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            // Create star burst
+            createStarBurst(x, y, '#a6e3ff');
+            
+            // Add extra cat elements for packcat world
+            for(let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const cat = document.createElement('div');
+                    cat.style.position = 'fixed';
+                    cat.style.left = `${x + Math.random() * 200 - 100}px`;
+                    cat.style.top = `${y + Math.random() * 200 - 100}px`;
+                    cat.style.fontSize = '28px';
+                    cat.style.zIndex = '1000';
+                    cat.textContent = '🐱';
+                    cat.style.animation = 'footprints 1.5s linear forwards';
+                    
+                    document.body.appendChild(cat);
+                    
+                    setTimeout(() => {
+                        cat.remove();
+                    }, 1500);
+                }, i * 100);
             }
-        `;
-        document.head.appendChild(style);
+            
+            // Navigate after animation
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 1000);
+        });
+        
+        // Add random floating fairies
+        function createRandomFairy() {
+            const fairyTypes = ['🧚‍♀️', '✨', '🌟', '💫', '🌸', '🎀'];
+            const fairy = document.createElement('div');
+            fairy.className = 'fairy';
+            fairy.textContent = fairyTypes[Math.floor(Math.random() * fairyTypes.length)];
+            fairy.style.left = `${Math.random() * 100}vw`;
+            fairy.style.top = `${Math.random() * 100}vh`;
+            fairy.style.color = ['#ff9ec0', '#a6e3ff', '#ffcc99', '#c8a2ff'][Math.floor(Math.random() * 4)];
+            fairy.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            fairy.style.animationDelay = `${Math.random() * 5}s`;
+            
+            document.body.appendChild(fairy);
+            
+            // Remove after animation completes a few times
+            setTimeout(() => {
+                fairy.remove();
+            }, 30000);
+        }
+        
+        // Create initial fairies
+        for(let i = 0; i < 6; i++) {
+            setTimeout(() => createRandomFairy(), i * 1000);
+        }
+        
+        // Create random fairies periodically
+        setInterval(() => {
+            if(Math.random() > 0.7) {
+                createRandomFairy();
+            }
+        }, 5000);
+        
+        // Add mouse follower fairy dust on mouse move
+        let lastX = 0, lastY = 0;
+        document.addEventListener('mousemove', (e) => {
+            // Only create dust occasionally to avoid performance issues
+            if(Math.random() > 0.7) {
+                const dust = document.createElement('div');
+                dust.style.position = 'fixed';
+                dust.style.left = `${e.pageX}px`;
+                dust.style.top = `${e.pageY}px`;
+                dust.style.width = '6px';
+                dust.style.height = '6px';
+                dust.style.backgroundColor = '#ff9ec0';
+                dust.style.borderRadius = '50%';
+                dust.style.pointerEvents = 'none';
+                dust.style.zIndex = '1000';
+                dust.style.opacity = '0.7';
+                dust.style.boxShadow = '0 0 8px #ff9ec0';
+                
+                document.body.appendChild(dust);
+                
+                // Animate and remove
+                dust.animate([
+                    { transform: 'translate(0, 0) scale(1)', opacity: 0.7 },
+                    { transform: 'translate(0, -20px) scale(0)', opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'ease-out'
+                });
+                
+                setTimeout(() => dust.remove(), 1000);
+            }
+            
+            lastX = e.pageX;
+            lastY = e.pageY;
+        });
     </script>
 </body>
 </html>
