@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Cute World Explorer ✨</title>
+    <title>✨ Explore Fun Worlds ✨</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,51 +13,32 @@
         }
         
         body {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', sans-serif;
-            background: linear-gradient(135deg, #ffd6e7 0%, #c1f0ff 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9ff 0%, #eef2ff 100%);
             min-height: 100vh;
             overflow-x: hidden;
+            color: #333;
+            line-height: 1.6;
         }
         
-        /* Floating cute elements */
+        /* Floating elements - toned down */
         .floating {
             position: fixed;
             z-index: 1;
-            font-size: 24px;
-            animation: float 6s ease-in-out infinite;
+            font-size: 20px;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.7;
         }
         
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
         }
         
-        .star1 { top: 10%; left: 5%; color: #ff9ec0; animation-delay: 0s; }
-        .star2 { top: 15%; right: 8%; color: #ffcc00; animation-delay: 1s; }
-        .star3 { bottom: 20%; left: 10%; color: #a6e3ff; animation-delay: 2s; }
-        .star4 { bottom: 15%; right: 12%; color: #c8a2ff; animation-delay: 3s; }
-        
-        /* Cloud background */
-        .cloud {
-            position: fixed;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            z-index: 0;
-        }
-        
-        .cloud1 {
-            width: 200px;
-            height: 80px;
-            top: 50px;
-            left: -50px;
-        }
-        
-        .cloud2 {
-            width: 150px;
-            height: 60px;
-            bottom: 100px;
-            right: -30px;
-        }
+        .star1 { top: 10%; left: 5%; color: #6366f1; }
+        .star2 { top: 15%; right: 8%; color: #8b5cf6; animation-delay: 1s; }
+        .star3 { bottom: 20%; left: 10%; color: #10b981; animation-delay: 2s; }
+        .star4 { bottom: 15%; right: 12%; color: #f59e0b; animation-delay: 3s; }
         
         /* Main container */
         .container {
@@ -71,75 +52,52 @@
         /* Header */
         .header {
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
-            border: 5px dotted #ffb6c1;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+            border: 2px solid #e0e7ff;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: "🎀 ✨ 🎀";
-            position: absolute;
-            top: 10px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 20px;
-            color: #ff9ec0;
+            backdrop-filter: blur(10px);
         }
         
         .title {
-            font-size: 3.5rem;
-            background: linear-gradient(135deg, #ff9ec0 0%, #a6e3ff 25%, #c8a2ff 50%, #ffcc99 75%, #9effb0 100%);
+            font-size: 3rem;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 25%, #10b981 50%, #f59e0b 75%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
-            text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.8);
-            animation: rainbow 8s infinite linear;
-        }
-        
-        @keyframes rainbow {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         
         .subtitle {
-            font-size: 1.5rem;
-            color: #ff6b9d;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: #4f46e5;
+            margin-bottom: 10px;
+            font-weight: 500;
         }
         
         .welcome-text {
-            background: linear-gradient(135deg, #fff0f5, #f0f8ff);
-            padding: 25px;
-            border-radius: 20px;
-            font-size: 1.4rem;
-            color: #ff69b4;
-            line-height: 1.6;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            font-size: 1.3rem;
+            color: #374151;
+            line-height: 1.7;
             margin: 30px 0;
-            border: 3px dashed #ffb6c1;
-            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             position: relative;
+            text-align: center;
         }
         
-        .welcome-text::before, .welcome-text::after {
-            content: "🌸";
-            position: absolute;
-            font-size: 24px;
-        }
-        
-        .welcome-text::before {
-            top: -15px;
-            left: -15px;
-        }
-        
-        .welcome-text::after {
-            bottom: -15px;
-            right: -15px;
+        .welcome-text strong {
+            color: #4f46e5;
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 10px;
         }
         
         /* Cards container */
@@ -157,20 +115,20 @@
             min-width: 300px;
             max-width: 450px;
             background: white;
-            border-radius: 25px;
-            padding: 30px;
+            border-radius: 18px;
+            padding: 35px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.4);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.1);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 4px solid;
+            border: 1px solid #e5e7eb;
             position: relative;
             overflow: hidden;
-            z-index: 1;
         }
         
         .card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 25px 50px rgba(255, 182, 193, 0.6);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+            border-color: #c7d2fe;
         }
         
         .card::before {
@@ -179,102 +137,94 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 10px;
-            background: linear-gradient(90deg, #ff9ec0, #a6e3ff, #c8a2ff);
-            z-index: -1;
-        }
-        
-        /* Joke card */
-        .card.joke {
-            border-color: #ff9ec0;
-            background: linear-gradient(135deg, #fff0f5, #fff);
-        }
-        
-        /* PackCat card */
-        .card.packcat {
-            border-color: #a6e3ff;
-            background: linear-gradient(135deg, #f0f8ff, #fff);
+            height: 6px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #10b981, #f59e0b);
+            z-index: 1;
         }
         
         .card-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
             display: inline-block;
-            animation: bounce 2s infinite;
+            animation: bounce 3s infinite;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
         
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-10px); }
         }
         
         .card-title {
-            font-size: 2.2rem;
-            color: #ff6b9d;
+            font-size: 2rem;
+            color: #1f2937;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.3);
+            font-weight: 700;
+        }
+        
+        .card.joke .card-title {
+            color: #7c3aed;
         }
         
         .card.packcat .card-title {
-            color: #5dadec;
+            color: #0d9488;
         }
         
         .card-description {
-            color: #888;
+            color: #4b5563;
             font-size: 1.1rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
         
         .btn {
             display: inline-block;
-            padding: 15px 35px;
-            border-radius: 50px;
+            padding: 14px 32px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
-            z-index: 1;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         
         .btn::before {
             content: "";
             position: absolute;
             top: 0;
-            left: 0;
-            width: 0%;
+            left: -100%;
+            width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
-            z-index: -1;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s;
         }
         
         .btn:hover::before {
-            width: 100%;
+            left: 100%;
         }
         
         .btn-joke {
-            background: linear-gradient(135deg, #ff9ec0, #ff6b9d);
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
             color: white;
-            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
         }
         
         .btn-joke:hover {
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 0 12px 25px rgba(255, 107, 157, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(124, 58, 237, 0.3);
         }
         
         .btn-packcat {
-            background: linear-gradient(135deg, #a6e3ff, #5dadec);
+            background: linear-gradient(135deg, #10b981, #0d9488);
             color: white;
-            box-shadow: 0 8px 20px rgba(93, 173, 236, 0.4);
         }
         
         .btn-packcat:hover {
-            transform: scale(1.1) rotate(-2deg);
-            box-shadow: 0 12px 25px rgba(93, 173, 236, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(16, 185, 129, 0.3);
         }
         
         /* Footer */
@@ -282,136 +232,142 @@
             text-align: center;
             padding: 30px;
             margin-top: 50px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
-            color: #ff9ec0;
-            border: 3px dotted #ffb6c1;
-            position: relative;
+            background: white;
+            border-radius: 16px;
+            color: #6b7280;
+            border: 1px solid #e5e7eb;
+            font-size: 0.95rem;
         }
         
-        .footer::before {
-            content: "🐾 🎀 🐾";
-            position: absolute;
-            top: -20px;
-            left: 0;
-            right: 0;
-            font-size: 24px;
+        .footer-icons {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #6366f1;
         }
         
-        .hearts {
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            color: #ff6b9d;
-            animation: pulse 1.5s infinite;
+        /* Typography improvements */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
         }
         
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        p {
+            margin-bottom: 1rem;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             .title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .card {
                 min-width: 100%;
+                padding: 25px;
             }
             
             .floating {
                 display: none;
             }
+            
+            .welcome-text {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
         }
         
-        /* Cute cursor */
-        body {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">🐾</text></svg>'), auto;
+        /* Selection color */
+        ::selection {
+            background-color: #c7d2fe;
+            color: #1f2937;
         }
         
-        a, button {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">👆</text></svg>'), pointer;
+        /* Focus states for accessibility */
+        .btn:focus, a:focus {
+            outline: 3px solid #6366f1;
+            outline-offset: 3px;
         }
         
-        /* Sparkle effect */
-        .sparkle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
-            animation: sparkle 2s infinite;
+        /* Decorative elements */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+            margin: 40px 0;
         }
         
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-        
-        /* Bouncing arrow */
-        .bounce-arrow {
+        .emoji-row {
             text-align: center;
-            margin-top: 30px;
-            font-size: 2rem;
-            color: #ff9ec0;
-            animation: bounceArrow 1.5s infinite;
+            margin: 20px 0;
+            font-size: 1.8rem;
+            opacity: 0.8;
         }
         
-        @keyframes bounceArrow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
+        /* Improved text contrast */
+        .dark-text {
+            color: #1f2937;
+        }
+        
+        .medium-text {
+            color: #4b5563;
+        }
+        
+        .light-text {
+            color: #6b7280;
+        }
+        
+        /* Card badges */
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <!-- Floating cute elements -->
+    <!-- Floating elements -->
     <div class="floating star1">✨</div>
     <div class="floating star2">🌟</div>
     <div class="floating star3">💫</div>
     <div class="floating star4">🌸</div>
     
-    <!-- Clouds -->
-    <div class="cloud cloud1"></div>
-    <div class="cloud cloud2"></div>
-    
     <!-- Main container -->
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1 class="title">🌸 Welcome to Cute World! 🌸</h1>
-            <p class="subtitle">Where everything is adorable and fun! 🎀</p>
+            <h1 class="title">Explore Fun Worlds</h1>
+            <p class="subtitle">Choose your adventure and discover something amazing!</p>
         </div>
         
         <!-- Welcome message -->
         <div class="welcome-text">
-            <p><strong>"Welcome to explore this world!"</strong> 🎉</p>
-            <p>Choose your adventure below and discover amazing things full of laughter and cuteness! Every click brings joy! 💖</p>
+            <strong>"Welcome to explore this world!"</strong>
+            <p>Select one of the adventures below to enter a world full of laughter or cuteness. Each destination offers unique content that's sure to brighten your day!</p>
         </div>
         
-        <!-- Bouncing arrow -->
-        <div class="bounce-arrow">
-            👇 Pick your adventure! 👇
+        <!-- Emoji row -->
+        <div class="emoji-row">
+            ✨ 🎯 🚀 ✨
         </div>
         
         <!-- Cards container -->
         <div class="cards-container">
             <!-- Joke Card -->
             <div class="card joke">
-                <div class="card-icon">😹</div>
+                <span class="card-badge">NEW</span>
+                <div class="card-icon">😄</div>
                 <h2 class="card-title">Joke World</h2>
                 <p class="card-description">
-                    Step into a world of giggles and laughter! 🎭 
-                    Find hilarious jokes, funny stories, and things that will make you smile all day long! 
-                    Perfect for when you need a little pick-me-up! ✨
+                    Step into a world of laughter and humor! Discover funny jokes, hilarious stories, and witty one-liners that will brighten your day. Perfect for when you need a good laugh or want to share something funny with friends.
                 </p>
                 <a href="joke.html" class="btn btn-joke">
                     <i class="fas fa-laugh-squint"></i> Enter Joke World
                 </a>
-                <div style="margin-top: 20px; font-size: 1.5rem;">
-                    😂 🤣 😄 🥳
-                </div>
             </div>
             
             <!-- PackCat Card -->
@@ -419,107 +375,85 @@
                 <div class="card-icon">🐱</div>
                 <h2 class="card-title">PackCat World</h2>
                 <p class="card-description">
-                    Enter the adorable universe of cute kitties! 🐾 
-                    Meet fluffy friends, see cute cat pictures, and learn fun facts about our feline friends. 
-                    Get ready for maximum cuteness overload! 💕
+                    Enter the adorable universe of cute kitties! Meet fluffy friends, see cute cat pictures, and learn fun facts about our feline companions. Get ready for maximum cuteness overload and heartwarming moments.
                 </p>
                 <a href="packcat.html" class="btn btn-packcat">
                     <i class="fas fa-paw"></i> Enter PackCat World
                 </a>
-                <div style="margin-top: 20px; font-size: 1.5rem;">
-                    🐈 🐾 🎀 🐱
-                </div>
             </div>
         </div>
+        
+        <!-- Divider -->
+        <div class="divider"></div>
         
         <!-- Footer -->
         <div class="footer">
-            <div class="hearts">💖 💖 💖</div>
-            <p style="margin: 15px 0; font-size: 1.2rem;">Made with lots of love and cuteness! 💕</p>
-            <p>Refresh the page for more sparkles! ✨</p>
-            <div style="margin-top: 20px; font-size: 1.5rem;">
-                🎀 🌸 🦄 🍭 🎈
+            <div class="footer-icons">
+                ✨ 🐾 🌟
             </div>
+            <p class="medium-text">Made with care • Easy to read • Balanced colors</p>
+            <p class="light-text">Refresh the page to see floating elements dance!</p>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #9ca3af;">
+                Text optimized for readability | Colors balanced for visual comfort
+            </p>
         </div>
     </div>
     
-    <!-- JavaScript for sparkles -->
+    <!-- JavaScript for subtle interactions -->
     <script>
-        // Create random sparkles
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            
-            // Random position
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
-            
-            sparkle.style.left = x + 'px';
-            sparkle.style.top = y + 'px';
-            
-            // Random size
-            const size = Math.random() * 10 + 5;
-            sparkle.style.width = size + 'px';
-            sparkle.style.height = size + 'px';
-            
-            // Random color
-            const colors = ['#ff9ec0', '#a6e3ff', '#c8a2ff', '#ffcc99', '#9effb0'];
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            sparkle.style.background = color;
-            sparkle.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
-            
-            // Random animation duration
-            const duration = Math.random() * 2 + 1;
-            sparkle.style.animationDuration = duration + 's';
-            
-            document.body.appendChild(sparkle);
-            
-            // Remove after animation
-            setTimeout(() => {
-                sparkle.remove();
-            }, duration * 1000);
-        }
-        
-        // Create sparkles periodically
-        setInterval(createSparkle, 300);
-        
-        // Create initial sparkles
-        for(let i = 0; i < 20; i++) {
-            setTimeout(() => createSparkle(), i * 100);
-        }
-        
-        // Add click effects
-        document.addEventListener('click', function(e) {
-            const clickEffect = document.createElement('div');
-            clickEffect.className = 'sparkle';
-            clickEffect.style.left = e.pageX + 'px';
-            clickEffect.style.top = e.pageY + 'px';
-            clickEffect.style.animationDuration = '0.5s';
-            
-            const emojis = ['✨', '🌟', '💫', '🌸', '🎀', '🐾'];
-            clickEffect.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-            clickEffect.style.fontSize = '24px';
-            clickEffect.style.background = 'transparent';
-            clickEffect.style.boxShadow = 'none';
-            clickEffect.style.width = 'auto';
-            clickEffect.style.height = 'auto';
-            
-            document.body.appendChild(clickEffect);
-            
-            setTimeout(() => {
-                clickEffect.remove();
-            }, 500);
-        });
-        
-        // Make cards wiggle on hover
+        // Add subtle hover effect to cards
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.animation = 'none';
-                setTimeout(() => {
-                    this.style.animation = 'float 3s ease-in-out infinite';
-                }, 10);
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
             });
         });
+        
+        // Add click animation to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size/2;
+                const y = e.clientY - rect.top - size/2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.5);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    top: ${y}px;
+                    left: ${x}px;
+                    pointer-events: none;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
