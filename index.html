@@ -3,699 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐶My App🐶</title>
+    <title>Frog Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        :root {
+            --green-light: #e8f5e9;
+            --green: #81c784;
+            --green-dark: #4caf50;
+            --green-deep: #2e7d32;
+            --gray-light: #f5f5f5;
+            --gray: #757575;
+            --white: #ffffff;
+            --accent: #ff9800;
+            --error: #f44336;
+            --success: #4caf50;
+        }
+
         body {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #ffe6f2 0%, #e6f2ff 100%);
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--green-light);
             min-height: 100vh;
-            overflow-x: hidden;
-            color: #333;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><text y="20" font-size="20">🐭</text></svg>'), auto;
-        }
-        
-        /* Cat & Mouse cursor */
-        a, button {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><text y="20" font-size="20">🐱</text></svg>'), pointer;
-        }
-        
-        /* Floating fairies & stars */
-        .fairy {
-            position: fixed;
-            font-size: 24px;
-            z-index: 1;
-            animation: fairyFloat 8s ease-in-out infinite;
-            filter: drop-shadow(0 0 8px rgba(255, 182, 193, 0.5));
-        }
-        
-        @keyframes fairyFloat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(10px, -15px) rotate(5deg); }
-            50% { transform: translate(-5px, -25px) rotate(-5deg); }
-            75% { transform: translate(-10px, -15px) rotate(5deg); }
-        }
-        
-        .fairy1 { top: 10%; left: 5%; color: #ff9ec0; animation-delay: 0s; }
-        .fairy2 { top: 15%; right: 8%; color: #a6e3ff; animation-delay: 1s; }
-        .fairy3 { bottom: 20%; left: 10%; color: #ffb6c1; animation-delay: 2s; }
-        .fairy4 { bottom: 15%; right: 12%; color: #ffcc99; animation-delay: 3s; }
-        
-        /* Main container */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 40px 30px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
-            border-radius: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.25);
-            border: 4px double #ffb6c1;
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-        
-        .header::before {
-            content: "✨ 🎀 🐱 🐭 🎀 ✨";
-            position: absolute;
-            top: -15px;
-            left: 0;
-            right: 0;
-            font-size: 20px;
-            letter-spacing: 5px;
-        }
-        
-        .title {
-            font-size: 3.2rem;
-            background: linear-gradient(135deg, #ff6b9d 0%, #ff9ec0 25%, #a6e3ff 50%, #ffcc99 75%, #9effb0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            animation: titleGlow 4s infinite alternate;
-        }
-        
-        @keyframes titleGlow {
-            0% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 107, 157, 0.3)); }
-            100% { filter: brightness(1.1) drop-shadow(0 0 10px rgba(255, 107, 157, 0.5)); }
-        }
-        
-        .subtitle {
-            font-size: 1.4rem;
-            color: #ff6b9d;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .welcome-text {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px;
-            border-radius: 20px;
-            font-size: 1.3rem;
-            color: #5a5560;
-            line-height: 1.7;
-            margin: 30px 0;
-            border: 3px dashed #ffb6c1;
-            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.15);
-            position: relative;
-            text-align: center;
-        }
-        
-        .welcome-text strong {
-            color: #ff6b9d;
-            font-size: 1.5rem;
-            display: block;
-            margin-bottom: 10px;
-        }
-        
-        /* Cards container */
-        .cards-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
             justify-content: center;
-            margin: 40px 0;
+            align-items: center;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(129, 199, 132, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(76, 175, 80, 0.1) 0%, transparent 20%);
         }
-        
-        /* Card styles */
-        .card {
-            flex: 1;
-            min-width: 300px;
+
+        /* Login container */
+        .login-container {
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            width: 100%;
             max-width: 450px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.8));
-            border-radius: 25px;
-            padding: 35px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 4px solid;
             position: relative;
             overflow: hidden;
         }
-        
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: linear-gradient(90deg, #ff9ec0, #a6e3ff, #ffcc99, #9effb0);
-            z-index: 1;
-        }
-        
-        .card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 30px 50px rgba(255, 182, 193, 0.4);
-        }
-        
-        /* Joke card */
-        .card.joke {
-            border-color: #ff9ec0;
-        }
-        
-        /* PackCat card */
-        .card.packcat {
-            border-color: #a6e3ff;
-        }
-        
-        .card-icon {
-            font-size: 4rem;
-            margin-bottom: 25px;
-            display: inline-block;
-            animation: bounce 2.5s infinite;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-        
-        .card-title {
-            font-size: 2.2rem;
-            color: #ff6b9d;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .card.packcat .card-title {
-            color: #5dadec;
-        }
-        
-        .card-description {
-            color: #666;
-            font-size: 1.15rem;
-            line-height: 1.6;
+
+        /* Header */
+        .login-header {
             margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 16px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            transform-style: preserve-3d;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-        }
-        
-        .btn-joke {
-            background: linear-gradient(135deg, #ff9ec0, #ff6b9d);
-            color: white;
-        }
-        
-        .btn-joke:hover {
-            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.4);
-        }
-        
-        .btn-packcat {
-            background: linear-gradient(135deg, #a6e3ff, #5dadec);
-            color: white;
-        }
-        
-        .btn-packcat:hover {
-            box-shadow: 0 15px 30px rgba(93, 173, 236, 0.4);
-        }
-        
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.9));
-            border-radius: 25px;
-            color: #ff6b9d;
-            border: 3px dotted #ffb6c1;
             position: relative;
         }
-        
-        .footer::before {
-            content: "🐱 🐭 🎀 🐾 🎀 🐭 🐱";
-            position: absolute;
-            top: -20px;
-            left: 0;
-            right: 0;
-            font-size: 24px;
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--green-deep);
+            margin-bottom: 8px;
+            font-weight: 700;
         }
-        
-        .magic-text {
-            font-size: 1.2rem;
-            margin: 15px 0;
-            color: #5a5560;
+
+        .login-subtitle {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.5;
         }
-        
-        /* Cute divider */
-        .divider {
+
+        /* Frog logo */
+        .frog-logo {
+            width: 80px;
+            height: 80px;
+            background-color: var(--green);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 30px 0;
-            font-size: 1.8rem;
-            color: #ff9ec0;
-            gap: 15px;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
         }
-        
-        .divider-line {
-            height: 2px;
-            flex-grow: 1;
-            background: linear-gradient(90deg, transparent, #ffb6c1, transparent);
+
+        .frog-logo i {
+            font-size: 2.5rem;
+            color: var(--white);
         }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2.4rem;
-            }
-            
-            .card {
-                min-width: 100%;
-                padding: 25px;
-            }
-            
-            .welcome-text {
-                padding: 20px;
-                font-size: 1.1rem;
-            }
+
+        /* Form styling */
+        .login-form {
+            margin: 30px 0 20px;
         }
-        
-        /* Selection color */
-        ::selection {
-            background-color: #ffb6c1;
-            color: white;
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
         }
-        
-        /* Star effect styles */
-        .star {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            pointer-events: none;
-            z-index: 1000;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>');
-            background-size: contain;
-            opacity: 0;
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--green-deep);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
-        
-        .fairy-dust {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            pointer-events: none;
-            z-index: 1000;
-            border-radius: 50%;
-            opacity: 0;
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Nunito', sans-serif;
+            transition: all 0.3s;
+            background-color: var(--gray-light);
         }
-        
-        /* Cat and mouse footprints */
-        .footprints {
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--green);
+            background-color: var(--white);
+        }
+
+        .form-input[readonly] {
+            background-color: #f0f0f0;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        /* Button styling */
+        .submit-btn {
+            width: 100%;
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-family: 'Nunito', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Message styling */
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: none;
+            animation: pop-in 0.5s ease-out;
+            text-align: left;
+        }
+
+        .error-message {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--error);
+            border-left: 4px solid var(--error);
+        }
+
+        .success-message {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success);
+            border-left: 4px solid var(--success);
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: inherit;
+            padding: 0;
+            line-height: 1;
+        }
+
+        /* Decorative elements */
+        .leaf {
             position: absolute;
-            font-size: 20px;
-            animation: footprints 2s linear forwards;
-            opacity: 0;
+            color: var(--green);
+            opacity: 0.3;
+            z-index: 0;
         }
-        
-        @keyframes footprints {
-            0% { opacity: 0; transform: translateY(0) rotate(0deg); }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(-100px) rotate(360deg); }
+
+        .leaf-1 {
+            top: 10px;
+            left: 10px;
+            font-size: 2rem;
+            transform: rotate(45deg);
+        }
+
+        .leaf-2 {
+            bottom: 10px;
+            right: 10px;
+            font-size: 2rem;
+            transform: rotate(-45deg);
+        }
+
+        /* Animations */
+        @keyframes pop-in {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes bingo {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Footer */
+        .login-footer {
+            margin-top: 25px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 500px) {
+            .login-container {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .form-input {
+                padding: 12px 14px;
+            }
+            
+            .submit-btn {
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .login-container {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating fairies -->
-    <div class="fairy fairy1">🧚‍♀️</div>
-    <div class="fairy fairy2">✨</div>
-    <div class="fairy fairy3">🌟</div>
-    <div class="fairy fairy4">💫</div>
-    
-    <!-- Main container -->
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1 class="title"> WELCOME TO HERE </h1>
-            <p class="subtitle">Where Cats Chase Mice and Magic Happens! 🎩🐇</p>
+    <div class="login-container">
+        <div class="leaf leaf-1">
+            <i class="fas fa-leaf"></i>
+        </div>
+        <div class="leaf leaf-2">
+            <i class="fas fa-leaf"></i>
         </div>
         
-        <!-- Welcome message -->
-        <div class="welcome-text">
-            <strong>"Welcome to explore this world!" 🎉</strong>
-            <p>Click on either magical portal below to enter a world of laughter or feline friendship! Each click creates magical fairy star effects! ✨</p>
-            <p style="margin-top: 15px; font-size: 1.1rem; color: #ff9ec0;">
-                <i class="fas fa-magic"></i> Try clicking the buttons for a magical surprise!
-            </p>
+        <div class="login-header">
+            <div class="frog-logo">
+                <i class="fas fa-frog"></i>
+            </div>
+            <h1>Frog Portal</h1>
+            <p class="login-subtitle">Secure access to your personal travel companion app</p>
         </div>
         
-        <!-- Divider -->
-        <div class="divider">
-            <div class="divider-line"></div>
-            <span>✨ Click Your Adventure ✨</span>
-            <div class="divider-line"></div>
-        </div>
-        
-        <!-- Cards container -->
-        <div class="cards-container">
-            <!-- Joke Card -->
-            <div class="card joke">
-                <div class="card-icon">😂</div>
-                <h2 class="card-title">Joke World</h2>
-                <p class="card-description">
-                    Enter a magical world of laughter! Discover hilarious jokes, funny memes, and witty humor that will make your day brighter. Perfect for when you need a good chuckle! 🎭
-                </p>
-                <a href="joke.html" class="btn btn-joke" id="jokeBtn">
-                    <i class="fas fa-laugh-squint"></i> Enter Joke World
-                </a>
-                <div style="margin-top: 25px; font-size: 1.5rem; color: #ff6b9d;">
-                    😄 😂 🤣 🥳
-                </div>
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label class="form-label">User Name</label>
+                <input type="text" class="form-input" value="The One You Know" readonly>
             </div>
             
-            <!-- PackCat Card -->
-            <div class="card packcat">
-                <div class="card-icon">🐱</div>
-                <h2 class="card-title">PackCat World</h2>
-                <p class="card-description">
-                    Step into an adorable universe of cute kitties! Meet fluffy feline friends, see adorable cat pictures, and enjoy heartwarming moments with our purr-fect companions. 🐾
-                </p>
-                <a href="packcat.html" class="btn btn-packcat" id="packcatBtn">
-                    <i class="fas fa-paw"></i> Enter PackCat World
-                </a>
-                <div style="margin-top: 25px; font-size: 1.5rem; color: #5dadec;">
-                    🐈 🐾 🎀 🐱
-                </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" id="passwordInput" placeholder="Enter your password" autocomplete="off">
             </div>
+            
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-sign-in-alt"></i> Access Portal
+            </button>
+        </form>
+        
+        <div class="message error-message" id="errorMessage">
+            <div class="message-header">
+                <span>Access Denied</span>
+                <button class="close-btn" id="closeError">&times;</button>
+            </div>
+            <p>You're the imposter! Please try again.</p>
         </div>
         
-        <!-- Footer -->
-        <div class="footer">
-            <div style="font-size: 2rem; margin-bottom: 15px; color: #ff9ec0;">
-                🐱✨🐭
+        <div class="message success-message" id="successMessage">
+            <div class="message-header">
+                <span>Access Granted</span>
             </div>
-            <p class="magic-text">Made with magic, pink sparkles, and cat-mouse friendship! ✨</p>
-            <p style="color: #888; margin-top: 10px; font-size: 0.9rem;">
-                Every click creates fairy dust! Try it! | Refresh for new floating fairies
-            </p>
+            <p>Bingo! Welcome to the Frog Portal.</p>
+        </div>
+        
+        <div class="login-footer">
+            <p>© 2023 Frog Portal. All rights reserved.</p>
         </div>
     </div>
-    
-    <!-- JavaScript for Magical Effects -->
+
     <script>
-        // Function to create star burst effect
-        function createStarBurst(x, y, color) {
-            // Create multiple stars
-            for(let i = 0; i < 25; i++) {
-                // Create star element
-                const star = document.createElement('div');
-                star.className = 'star';
-                
-                // Random size
-                const size = Math.random() * 25 + 10;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                
-                // Random starting position (around the click point)
-                const startX = x + (Math.random() * 100 - 50);
-                const startY = y + (Math.random() * 100 - 50);
-                
-                // Random color for fairy dust
-                const colors = ['#ff9ec0', '#a6e3ff', '#ffcc99', '#ffd700', '#c8a2ff'];
-                const starColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                // Set position and color
-                star.style.left = `${startX}px`;
-                star.style.top = `${startY}px`;
-                star.style.background = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${starColor.replace('#', '%23')}"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>')`;
-                star.style.backgroundSize = 'contain';
-                
-                // Random animation properties
-                const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 150 + 50;
-                const duration = Math.random() * 1.5 + 1;
-                
-                // Add to body
-                document.body.appendChild(star);
-                
-                // Animate the star
-                star.animate([
-                    { 
-                        transform: `translate(0, 0) rotate(0deg) scale(1)`,
-                        opacity: 1
-                    },
-                    { 
-                        transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) rotate(360deg) scale(0)`,
-                        opacity: 0
-                    }
-                ], {
-                    duration: duration * 1000,
-                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
-                });
-                
-                // Remove after animation
-                setTimeout(() => {
-                    star.remove();
-                }, duration * 1000);
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const passwordInput = document.getElementById('passwordInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const closeErrorBtn = document.getElementById('closeError');
             
-            // Create fairy dust particles
-            for(let i = 0; i < 15; i++) {
-                const dust = document.createElement('div');
-                dust.className = 'fairy-dust';
-                
-                // Random color
-                const dustColors = ['#ff9ec0', '#a6e3ff', '#ffcc99', '#ffd700', '#ffffff'];
-                const dustColor = dustColors[Math.floor(Math.random() * dustColors.length)];
-                
-                dust.style.backgroundColor = dustColor;
-                dust.style.boxShadow = `0 0 10px ${dustColor}`;
-                
-                // Random position
-                const dustX = x + (Math.random() * 80 - 40);
-                const dustY = y + (Math.random() * 80 - 40);
-                
-                dust.style.left = `${dustX}px`;
-                dust.style.top = `${dustY}px`;
-                
-                // Random size
-                const dustSize = Math.random() * 12 + 4;
-                dust.style.width = `${dustSize}px`;
-                dust.style.height = `${dustSize}px`;
-                
-                document.body.appendChild(dust);
-                
-                // Animate fairy dust
-                dust.animate([
-                    { 
-                        transform: 'translate(0, 0) scale(1)',
-                        opacity: 1
-                    },
-                    { 
-                        transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * -100 - 50}px) scale(0)`,
-                        opacity: 0
-                    }
-                ], {
-                    duration: Math.random() * 2000 + 1000,
-                    easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
-                });
-                
-                // Remove after animation
-                setTimeout(() => {
-                    dust.remove();
-                }, 3000);
-            }
+            // Correct password
+            const CORRECT_PASSWORD = "007799";
             
-            // Create cat and mouse footprints
-            const footprints = ['🐱', '🐭', '🐾'];
-            for(let i = 0; i < 8; i++) {
-                setTimeout(() => {
-                    const footprint = document.createElement('div');
-                    footprint.className = 'footprints';
-                    footprint.textContent = footprints[Math.floor(Math.random() * footprints.length)];
-                    footprint.style.left = `${x + (Math.random() * 100 - 50)}px`;
-                    footprint.style.top = `${y + (Math.random() * 100 - 50)}px`;
-                    footprint.style.fontSize = `${Math.random() * 24 + 16}px`;
+            // Handle form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const enteredPassword = passwordInput.value.trim();
+                
+                // Check if password is correct
+                if (enteredPassword === CORRECT_PASSWORD) {
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
                     
-                    document.body.appendChild(footprint);
-                    
+                    // Add bingo animation
+                    successMessage.style.animation = 'none';
                     setTimeout(() => {
-                        footprint.remove();
-                    }, 2000);
-                }, i * 100);
-            }
-            
-            // Play magical sound (optional - would need audio file)
-            // const sound = new Audio('magic-sound.mp3');
-            // sound.volume = 0.3;
-            // sound.play();
-        }
-        
-        // Add click event to buttons
-        document.getElementById('jokeBtn').addEventListener('click', function(e) {
-            // Prevent immediate navigation to see the effect
-            e.preventDefault();
-            
-            // Get button position
-            const rect = this.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            
-            // Create star burst
-            createStarBurst(x, y, '#ff9ec0');
-            
-            // Add extra pink stars for joke world
-            for(let i = 0; i < 10; i++) {
-                setTimeout(() => {
-                    const extraStar = document.createElement('div');
-                    extraStar.style.position = 'fixed';
-                    extraStar.style.left = `${x + Math.random() * 200 - 100}px`;
-                    extraStar.style.top = `${y + Math.random() * 200 - 100}px`;
-                    extraStar.style.fontSize = '24px';
-                    extraStar.style.zIndex = '1000';
-                    extraStar.textContent = '😂';
-                    extraStar.style.animation = 'footprints 1.5s linear forwards';
+                        successMessage.style.animation = 'bingo 0.5s ease-out, pop-in 0.5s ease-out';
+                    }, 10);
                     
-                    document.body.appendChild(extraStar);
-                    
+                    // Redirect to main.html after 1.5 seconds
                     setTimeout(() => {
-                        extraStar.remove();
+                        window.location.href = "main.html";
                     }, 1500);
-                }, i * 100);
-            }
-            
-            // Navigate after animation
-            setTimeout(() => {
-                window.location.href = this.href;
-            }, 1000);
-        });
-        
-        document.getElementById('packcatBtn').addEventListener('click', function(e) {
-            // Prevent immediate navigation to see the effect
-            e.preventDefault();
-            
-            // Get button position
-            const rect = this.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            
-            // Create star burst
-            createStarBurst(x, y, '#a6e3ff');
-            
-            // Add extra cat elements for packcat world
-            for(let i = 0; i < 10; i++) {
-                setTimeout(() => {
-                    const cat = document.createElement('div');
-                    cat.style.position = 'fixed';
-                    cat.style.left = `${x + Math.random() * 200 - 100}px`;
-                    cat.style.top = `${y + Math.random() * 200 - 100}px`;
-                    cat.style.fontSize = '28px';
-                    cat.style.zIndex = '1000';
-                    cat.textContent = '🐱';
-                    cat.style.animation = 'footprints 1.5s linear forwards';
                     
-                    document.body.appendChild(cat);
+                } else {
+                    // Show error message
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
                     
+                    // Shake animation for wrong password
+                    passwordInput.style.animation = 'none';
                     setTimeout(() => {
-                        cat.remove();
-                    }, 1500);
-                }, i * 100);
-            }
+                        passwordInput.style.animation = 'shake 0.5s ease-out';
+                    }, 10);
+                    
+                    // Clear the password field
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            });
             
-            // Navigate after animation
-            setTimeout(() => {
-                window.location.href = this.href;
-            }, 1000);
-        });
-        
-        // Add random floating fairies
-        function createRandomFairy() {
-            const fairyTypes = ['🧚‍♀️', '✨', '🌟', '💫', '🌸', '🎀'];
-            const fairy = document.createElement('div');
-            fairy.className = 'fairy';
-            fairy.textContent = fairyTypes[Math.floor(Math.random() * fairyTypes.length)];
-            fairy.style.left = `${Math.random() * 100}vw`;
-            fairy.style.top = `${Math.random() * 100}vh`;
-            fairy.style.color = ['#ff9ec0', '#a6e3ff', '#ffcc99', '#c8a2ff'][Math.floor(Math.random() * 4)];
-            fairy.style.animationDuration = `${Math.random() * 10 + 5}s`;
-            fairy.style.animationDelay = `${Math.random() * 5}s`;
+            // Close error message
+            closeErrorBtn.addEventListener('click', function() {
+                errorMessage.style.display = 'none';
+            });
             
-            document.body.appendChild(fairy);
+            // Add shake animation for wrong password
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+            `;
+            document.head.appendChild(style);
             
-            // Remove after animation completes a few times
-            setTimeout(() => {
-                fairy.remove();
-            }, 30000);
-        }
-        
-        // Create initial fairies
-        for(let i = 0; i < 6; i++) {
-            setTimeout(() => createRandomFairy(), i * 1000);
-        }
-        
-        // Create random fairies periodically
-        setInterval(() => {
-            if(Math.random() > 0.7) {
-                createRandomFairy();
-            }
-        }, 5000);
-        
-        // Add mouse follower fairy dust on mouse move
-        let lastX = 0, lastY = 0;
-        document.addEventListener('mousemove', (e) => {
-            // Only create dust occasionally to avoid performance issues
-            if(Math.random() > 0.7) {
-                const dust = document.createElement('div');
-                dust.style.position = 'fixed';
-                dust.style.left = `${e.pageX}px`;
-                dust.style.top = `${e.pageY}px`;
-                dust.style.width = '6px';
-                dust.style.height = '6px';
-                dust.style.backgroundColor = '#ff9ec0';
-                dust.style.borderRadius = '50%';
-                dust.style.pointerEvents = 'none';
-                dust.style.zIndex = '1000';
-                dust.style.opacity = '0.7';
-                dust.style.boxShadow = '0 0 8px #ff9ec0';
-                
-                document.body.appendChild(dust);
-                
-                // Animate and remove
-                dust.animate([
-                    { transform: 'translate(0, 0) scale(1)', opacity: 0.7 },
-                    { transform: 'translate(0, -20px) scale(0)', opacity: 0 }
-                ], {
-                    duration: 1000,
-                    easing: 'ease-out'
-                });
-                
-                setTimeout(() => dust.remove(), 1000);
-            }
+            // Focus on password input when page loads
+            passwordInput.focus();
             
-            lastX = e.pageX;
-            lastY = e.pageY;
+            // Add some interaction to the frog logo
+            const frogLogo = document.querySelector('.frog-logo');
+            frogLogo.addEventListener('click', function() {
+                frogLogo.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    frogLogo.style.transform = 'scale(1)';
+                }, 200);
+            });
         });
     </script>
 </body>
